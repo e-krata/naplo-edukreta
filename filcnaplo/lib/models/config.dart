@@ -4,7 +4,7 @@ class Config {
   String _userAgent;
   Map? json;
   static const String _version =
-      String.fromEnvironment("APPVER", defaultValue: "3.0.4");
+      String.fromEnvironment("APPVER", defaultValue: "16.0.2");
 
   Config({required String userAgent, this.json}) : _userAgent = userAgent;
 
