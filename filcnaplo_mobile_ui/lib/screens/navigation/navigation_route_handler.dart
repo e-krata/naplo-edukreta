@@ -1,6 +1,8 @@
 import 'package:filcnaplo_mobile_ui/pages/absences/absences_page.dart';
+import 'package:filcnaplo_mobile_ui/pages/covid/covid_page.dart';
 import 'package:filcnaplo_mobile_ui/pages/grades/grades_page.dart';
 import 'package:filcnaplo_mobile_ui/pages/home/home_page.dart';
+import 'package:filcnaplo_mobile_ui/pages/lep/lep_page.dart';
 import 'package:filcnaplo_mobile_ui/pages/messages/messages_page.dart';
 import 'package:filcnaplo_mobile_ui/pages/timetable/timetable_page.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +20,10 @@ Route navigationRouteHandler(RouteSettings settings) {
       return navigationPageRoute((context) => const MessagesPage());
     case "absences":
       return navigationPageRoute((context) => const AbsencesPage());
+    case "lep":
+      return navigationPageRoute((context) => const LepPage());
+    case "covid":
+      return navigationPageRoute((context) => const CovidPage());
     default:
       return navigationPageRoute((context) => const HomePage());
   }
