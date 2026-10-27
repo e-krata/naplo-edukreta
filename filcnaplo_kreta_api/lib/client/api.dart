@@ -93,12 +93,33 @@ class KretaAPI {
       BaseKreta.kretaAdmin + KretaAdminEndpoints.deleteMessage;
 }
 
+// LEP API
+// static const lepEloadasok = 
+//  BaseKreta.eduKretaLEP + KretaLEPEndpoints.osszesEloadas;
+// static const lepGondviseloEngedely =
+//  BaseKreta.eduKretaLEP + KretaLEPEndpoints.gondviseloEngedelyezes;
+// static const lepEloadasVege =
+//  BaseKreta.eduKretaLEP + KretaLEPEndpoints.eloadasVege;
+
+// Covid API
+// static String covidIntLezarasStart(String intezmenyId) =>
+//  BaseKreta.eduKretaCovid + KretaCovidEndpoints.intLezarasStart(String intezmenyId);
+// static String covidIntLezarasBef(String intezmenyId) =>
+//  BaseKreta.eduKretaCovid + KretaCovidEndpoints.intLezarasVege(String intezmenyId);
+// static string covidBejelentes(String intezmenyId) =>
+//  BaseKreta.eduKretaCovid + KretaCovidEndpoints.bejelentes(String intezmenyId);
+
+
+
+
 class BaseKreta {
   static const host = "https://edukreta.onrender.com"; 
   static String kreta(String iss) => host;  // institute a token/login body-ban marad
   static const kretaIdp = host;
   static const kretaAdmin = host;
   static const kretaFiles = host;
+  static const eduKretaLEP = host;
+  static const eduKretaCovid = host;
 }
 
 class KretaApiEndpoints {
@@ -132,8 +153,8 @@ class KretaAdminEndpoints {
   static const messages = "/integration-kretamobile-api/v1/kommunikacio/postaladaelemek/sajat";
   static String message(String id) =>
       "/integration-kretamobile-api/v1/kommunikacio/postaladaelemek/$id";
-  static const recipientCategories = "/api/v1/adatszotarak/cimzetttipusok";
-  static const availableCategories = "/api/v1/kommunikacio/cimezhetotipusok";
+  static const recipientCategories = "/integration-kretamobile-api/v1/adatszotarak/cimzetttipusok";
+  static const availableCategories = "/integration-kretamobile-api/v1/kommunikacio/cimezhetotipusok";
   static String recipientTeachers(String intezmenyId) =>
       "/kapcsolodas/eAdmin/$intezmenyId/alkalmazottak/Osztalyfonok";
   static String recipientDirectorate(String intezmenyId) =>
@@ -141,8 +162,23 @@ class KretaAdminEndpoints {
   static const uploadAttachment = "/ideiglenesfajlok";
   static String downloadAttachment(String id) =>
       "/api/v1/dokumentumok/uzenetek/$id";
-  static const trashMessage = "/api/v1/kommunikacio/postaladaelemek/kuka";
-  static const deleteMessage = "/api/v1/kommunikacio/postaladaelemek/torles";
+  static const trashMessage = "/integration-kretamobile-api/v1/kommunikacio/postaladaelemek/kuka";
+  static const deleteMessage = "/integration-kretamobile-api/v1/kommunikacio/postaladaelemek/torles";
   // profile management
   static const editProfile = "/api/profilapi/saveprofildata";
+}
+
+class KretaCovidEndpoints {
+  static String bejelentes(String intezmenyId) =>
+    "/kapcsolodas/edukreta/Covid/$intezmenyId/Bejelentes";
+  static String intLezarasVege(String intezmenyId) =>
+    "/kapcsolodas/edukreta/Covid/$intezmenyId/IntezmenyLezaras/Vege";
+  static String intLezarasStart(String intezmenyId) =>
+    "/kapcsolodas/edukreta/Covid/$intezmenyId/IntezmenyLezaras/Start"
+}
+
+class KretaLEPEndpoints {
+  static const osszesEloadas = "/kapcsolodas/LEP/mobileAPI/Eloadasok";
+  static const gondviseloEngedelyezes = "/kapcsolodas/LEP/mobileAPI/Eloadasok/GondviseloEngedelyezes";
+  static const eloadasVege = "/kapcsolodas/LEP/EventFinished";
 }
