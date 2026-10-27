@@ -890,7 +890,7 @@ class SettingsScreenState extends State<SettingsScreen>
                     leading: const Icon(FeatherIcons.atSign),
                     title: const Text("Discord"),
                     onPressed: () => launchUrl(
-                        Uri.parse("https://dc.refilc.hu"),
+                        Uri.parse("https://discord.gg/gzqmccHXWb"),
                         mode: LaunchMode.externalApplication),
                   ),
                   PanelButton(
@@ -904,7 +904,7 @@ class SettingsScreenState extends State<SettingsScreen>
                     leading: const Icon(FeatherIcons.github),
                     title: const Text("Github"),
                     onPressed: () => launchUrl(
-                        Uri.parse("https://github.com/refilc"),
+                        Uri.parse("https://github.com/e-krata/naplo-edukrata"),
                         mode: LaunchMode.externalApplication),
                   ),
                   PanelButton(
