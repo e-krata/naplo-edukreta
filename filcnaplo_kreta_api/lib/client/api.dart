@@ -5,7 +5,7 @@ class KretaAPI {
   static const login = BaseKreta.kretaIdp + KretaApiEndpoints.token;
   static const logout = BaseKreta.kretaIdp + KretaApiEndpoints.revoke;
   static const nonce = BaseKreta.kretaIdp + KretaApiEndpoints.nonce;
-  static const clientId = "kreta-ellenorzo-mobile-android";
+  static const clientId = "edukreta-filcnaplo-mobil-android";
 
   // ELLENORZO API
   static String notes(String iss) =>
@@ -94,47 +94,50 @@ class KretaAPI {
 }
 
 class BaseKreta {
-  static String kreta(String iss) => "https://$iss.e-kreta.hu";
-  static const kretaIdp = "https://idp.e-kreta.hu";
-  static const kretaAdmin = "https://eugyintezes.e-kreta.hu";
-  static const kretaFiles = "https://files.e-kreta.hu";
+  static const host = "https://edukreta.onrender.com"; 
+  static String kreta(String iss) => host;  // institute a token/login body-ban marad
+  static const kretaIdp = host;
+  static const kretaAdmin = host;
+  static const kretaFiles = host;
 }
 
 class KretaApiEndpoints {
   static const token = "/connect/token";
   static const revoke = "/connect/revocation";
   static const nonce = "/nonce";
-  static const notes = "/ellenorzo/V3/Sajat/Feljegyzesek";
-  static const events = "/ellenorzo/V3/Sajat/FaliujsagElemek";
-  static const student = "/ellenorzo/V3/Sajat/TanuloAdatlap";
-  static const grades = "/ellenorzo/V3/Sajat/Ertekelesek";
-  static const absences = "/ellenorzo/V3/Sajat/Mulasztasok";
-  static const groups = "/ellenorzo/V3/Sajat/OsztalyCsoportok";
+  static const notes = "/ellenorzo/v3/sajat/Feljegyzesek";
+  static const events = "/ellenorzo/v3/sajat/FaliujsagElemek";
+  static const student = "/ellenorzo/v3/sajat/TanuloAdatlap";
+  static const grades = "/ellenorzo/v3/sajat/Ertekelesek";
+  static const absences = "/ellenorzo/v3/sajat/Mulasztasok";
+  static const groups = "/ellenorzo/v3/sajat/OsztalyCsoportok";
   static const groupAverages =
-      "/ellenorzo/V3/Sajat/Ertekelesek/Atlagok/OsztalyAtlagok";
-  static const averages = "/ellenorzo/V3/idk";
-  static const timetable = "/ellenorzo/V3/Sajat/OrarendElemek";
-  static const exams = "/ellenorzo/V3/Sajat/BejelentettSzamonkeresek";
-  static const homework = "/ellenorzo/V3/Sajat/HaziFeladatok";
+      "/ellenorzo/v3/sajat/Ertekelesek/Atlagok/OsztalyAtlagok";
+  static const averages = "/ellenorzo/v3/idk";
+  static const timetable = "/ellenorzo/v3/sajat/OrarendElemek";
+  static const exams = "/ellenorzo/v3/sajat/BejelentettSzamonkeresek";
+  static const homework = "/ellenorzo/v3/sajat/HaziFeladatok";
   // static const homeworkDone = "/ellenorzo/V3/Sajat/HaziFeladatok/Megoldva"; // Removed from the API
-  static const capabilities = "/ellenorzo/V3/Sajat/Intezmenyek";
+  static const capabilities = "/kapcsolodas/edukreta/publikus/intezmenyek";
   static String downloadHomeworkAttachments(String uid, String type) =>
-      "/ellenorzo/V3/Sajat/Csatolmany/$uid";
+      "/ellenorzo/v3/sajat/Csatolmany/$uid";
   static const subjects =
-      "/ellenorzo/V3/Sajat/Ertekelesek/Atlagok/TantargyiAtlagok";
+      "/ellenorzo/v3/sajat/Ertekelesek/Atlagok/TantargyiAtlagok";
+  static const 
 }
 
 class KretaAdminEndpoints {
   //static const messages = "/api/v1/kommunikacio/postaladaelemek/sajat";
-  static const sendMessage = "/api/v1/kommunikacio/uzenetek";
-  static String messages(String endpoint) =>
-      "/api/v1/kommunikacio/postaladaelemek/$endpoint";
+  static const sendMessage = "/integration-kretamobile-api/v1/kommunikacio/uzenetek";
+  static const messages = "/integration-kretamobile-api/v1/kommunikacio/postaladaelemek/sajat";
   static String message(String id) =>
-      "/api/v1/kommunikacio/postaladaelemek/$id";
+      "/integration-kretamobile-api/v1/kommunikacio/postaladaelemek/$id";
   static const recipientCategories = "/api/v1/adatszotarak/cimzetttipusok";
   static const availableCategories = "/api/v1/kommunikacio/cimezhetotipusok";
-  static const recipientTeachers = "/api/v1/kreta/alkalmazottak/tanar";
-  static const recipientDirectorate = "/api/v1/kreta/alkalmazottak/igazgatosag";
+  static String recipientTeachers(String intezmenyId) =>
+      "/kapcsolodas/eAdmin/$intezmenyId/alkalmazottak/Osztalyfonok";
+  static String recipientDirectorate(String intezmenyId) =>
+      "/kapcsolodas/eAdmin/$intezmenyId/alkalmazottak/Igazgatosag";
   static const uploadAttachment = "/ideiglenesfajlok";
   static String downloadAttachment(String id) =>
       "/api/v1/dokumentumok/uzenetek/$id";
