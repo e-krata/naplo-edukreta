@@ -57,6 +57,8 @@ import 'package:filcnaplo/api/providers/update_provider.dart';
 import 'package:filcnaplo_mobile_ui/pages/grades/calculator/grade_calculator_provider.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:filcnaplo_premium/providers/premium_provider.dart';
+import 'package:filcnaplo_kreta_api/providers/lep_provider.dart';
+import 'package:filcnaplo_kreta_api/providers/covid_provider.dart';
 
 class App extends StatelessWidget {
   final SettingsProvider settings;
@@ -113,6 +115,13 @@ class App extends StatelessWidget {
         ),
         ChangeNotifierProvider<AdProvider>(
           create: (context) => AdProvider(context: context),
+        ),
+        // LEP es Covid
+        ChangeNotifierProvider<LepProvider>(
+          create: (context) => LepProvider(client: context.read<KretaClient>()),
+        ),
+        ChangeNotifierProvider<CovidProvider>(
+           create: (context) => CovidProvider(client: context.read<KretaClient>()),
         ),
 
         // user data (kreten) providers
