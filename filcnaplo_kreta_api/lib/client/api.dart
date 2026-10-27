@@ -94,20 +94,20 @@ class KretaAPI {
 }
 
 // LEP API
-// static const lepEloadasok = 
-//  BaseKreta.eduKretaLEP + KretaLEPEndpoints.osszesEloadas;
-// static const lepGondviseloEngedely =
-//  BaseKreta.eduKretaLEP + KretaLEPEndpoints.gondviseloEngedelyezes;
-// static const lepEloadasVege =
-//  BaseKreta.eduKretaLEP + KretaLEPEndpoints.eloadasVege;
+ static const lepEloadasok = 
+  BaseKreta.eduKretaLEP + KretaLEPEndpoints.osszesEloadas;
+ static const lepGondviseloEngedely =
+  BaseKreta.eduKretaLEP + KretaLEPEndpoints.gondviseloEngedelyezes;
+ static const lepEloadasVege =
+  BaseKreta.eduKretaLEP + KretaLEPEndpoints.eloadasVege;
 
 // Covid API
-// static String covidIntLezarasStart(String intezmenyId) =>
-//  BaseKreta.eduKretaCovid + KretaCovidEndpoints.intLezarasStart(String intezmenyId);
-// static String covidIntLezarasBef(String intezmenyId) =>
-//  BaseKreta.eduKretaCovid + KretaCovidEndpoints.intLezarasVege(String intezmenyId);
-// static string covidBejelentes(String intezmenyId) =>
-//  BaseKreta.eduKretaCovid + KretaCovidEndpoints.bejelentes(String intezmenyId);
+ static String covidIntLezarasStart(String intezmenyId) =>
+  BaseKreta.eduKretaCovid + KretaCovidEndpoints.intLezarasStart(String intezmenyId);
+ static String covidIntLezarasBef(String intezmenyId) =>
+  BaseKreta.eduKretaCovid + KretaCovidEndpoints.intLezarasVege(String intezmenyId);
+ static string covidBejelentes(String intezmenyId) =>
+  BaseKreta.eduKretaCovid + KretaCovidEndpoints.bejelentes(String intezmenyId);
 
 
 
